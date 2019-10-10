@@ -1,0 +1,381 @@
+Index: .gradle/5.2.1/gc.properties
+===================================================================
+--- .gradle/5.2.1/gc.properties	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
++++ .gradle/5.2.1/gc.properties	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
+@@ -1,0 +0,0 @@
+Index: .gradle/buildOutputCleanup/cache.properties
+===================================================================
+--- .gradle/buildOutputCleanup/cache.properties	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
++++ .gradle/buildOutputCleanup/cache.properties	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
+@@ -1,2 +0,0 @@
+-#Thu Oct 10 11:48:09 GMT-04:00 2019
+-gradle.version=5.2.1
+Index: .gradle/vcs-1/gc.properties
+===================================================================
+--- .gradle/vcs-1/gc.properties	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
++++ .gradle/vcs-1/gc.properties	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
+@@ -1,0 +0,0 @@
+Index: gradle/wrapper/gradle-wrapper.properties
+===================================================================
+--- gradle/wrapper/gradle-wrapper.properties	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
++++ gradle/wrapper/gradle-wrapper.properties	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
+@@ -1,5 +0,0 @@
+-distributionBase=GRADLE_USER_HOME
+-distributionPath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-5.2.1-bin.zip
+-zipStoreBase=GRADLE_USER_HOME
+-zipStorePath=wrapper/dists
+Index: gradlew.bat
+===================================================================
+--- gradlew.bat	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
++++ gradlew.bat	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
+@@ -1,84 +0,0 @@
+-@if "%DEBUG%" == "" @echo off
+-@rem ##########################################################################
+-@rem
+-@rem  Gradle startup script for Windows
+-@rem
+-@rem ##########################################################################
+-
+-@rem Set local scope for the variables with windows NT shell
+-if "%OS%"=="Windows_NT" setlocal
+-
+-set DIRNAME=%~dp0
+-if "%DIRNAME%" == "" set DIRNAME=.
+-set APP_BASE_NAME=%~n0
+-set APP_HOME=%DIRNAME%
+-
+-@rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+-set DEFAULT_JVM_OPTS="-Xmx64m"
+-
+-@rem Find java.exe
+-if defined JAVA_HOME goto findJavaFromJavaHome
+-
+-set JAVA_EXE=java.exe
+-%JAVA_EXE% -version >NUL 2>&1
+-if "%ERRORLEVEL%" == "0" goto init
+-
+-echo.
+-echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+-echo.
+-echo Please set the JAVA_HOME variable in your environment to match the
+-echo location of your Java installation.
+-
+-goto fail
+-
+-:findJavaFromJavaHome
+-set JAVA_HOME=%JAVA_HOME:"=%
+-set JAVA_EXE=%JAVA_HOME%/bin/java.exe
+-
+-if exist "%JAVA_EXE%" goto init
+-
+-echo.
+-echo ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME%
+-echo.
+-echo Please set the JAVA_HOME variable in your environment to match the
+-echo location of your Java installation.
+-
+-goto fail
+-
+-:init
+-@rem Get command-line arguments, handling Windows variants
+-
+-if not "%OS%" == "Windows_NT" goto win9xME_args
+-
+-:win9xME_args
+-@rem Slurp the command line arguments.
+-set CMD_LINE_ARGS=
+-set _SKIP=2
+-
+-:win9xME_args_slurp
+-if "x%~1" == "x" goto execute
+-
+-set CMD_LINE_ARGS=%*
+-
+-:execute
+-@rem Setup the command line
+-
+-set CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
+-
+-@rem Execute Gradle
+-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %CMD_LINE_ARGS%
+-
+-:end
+-@rem End local scope for the variables with windows NT shell
+-if "%ERRORLEVEL%"=="0" goto mainEnd
+-
+-:fail
+-rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of
+-rem the _cmd.exe /c_ return code!
+-if  not "" == "%GRADLE_EXIT_CONSOLE%" exit 1
+-exit /b 1
+-
+-:mainEnd
+-if "%OS%"=="Windows_NT" endlocal
+-
+-:omega
+Index: src/test/java/Piv/PivotalTest.java
+===================================================================
+--- src/test/java/Piv/PivotalTest.java	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
++++ src/test/java/Piv/PivotalTest.java	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
+@@ -1,20 +0,0 @@
+-package Piv;
+-
+-import io.restassured.RestAssured;
+-import io.restassured.http.ContentType;
+-import io.restassured.response.Response;
+-import org.testng.annotations.Test;
+-
+-public class PivotalTest {
+-    @Test
+-    public void testPost(){
+-        Response res = RestAssured.given()
+-                .baseUri("https://www.pivotaltracker.com/services/v5")
+-                .header("X-TrackerToken","fb65d6b2bfdcfc20a4c008deeefdf1a2")
+-                .contentType(ContentType.JSON)
+-                .when()
+-                .body("{\"name\":\"Project created by rest assured\"}")
+-                .post("/projects");
+-        System.out.println(res.prettyPrint());
+-    }
+-}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
++++ .idea/workspace.xml	(date 1570725594624)
+@@ -2,16 +2,30 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="7ae21316-6e76-4ea6-82da-35bc84befdb0" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileChanges/last-build.bin" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/gc.properties" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/classes/java/test/Piv/PivotalTest.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/Piv/PivotalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pivotal/PivotalTest.java" afterDir="false" />
+     </list>
+     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+     <option name="SHOW_DIALOG" value="false" />
+@@ -23,6 +37,21 @@
+     <projectState path="$PROJECT_DIR$">
+       <ProjectState />
+     </projectState>
++  </component>
++  <component name="ExternalProjectsManager">
++    <system id="GRADLE">
++      <state>
++        <task path="$PROJECT_DIR$">
++          <activation />
++        </task>
++        <projects_view>
++          <tree_state>
++            <expand />
++            <select />
++          </tree_state>
++        </projects_view>
++      </state>
++    </system>
+   </component>
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+@@ -40,6 +69,7 @@
+     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="aspect.path.notification.shown" value="true" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+   </component>
+   <component name="RunDashboard">
+     <option name="ruleStates">
+@@ -54,12 +84,12 @@
+     </option>
+   </component>
+   <component name="RunManager">
+-    <configuration name="PivotalTest.testPost" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="PivotalTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+         <option name="externalSystemIdString" value="GRADLE" />
+-        <option name="scriptParameters" value="--tests &quot;Piv.PivotalTest.testPost&quot;" />
++        <option name="scriptParameters" value="--tests &quot;pivotal.PivotalTest&quot;" />
+         <option name="taskDescriptions">
+           <list />
+         </option>
+@@ -76,7 +106,8 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Gradle.PivotalTest.testPost" />
++        <item itemvalue="Gradle.PivotalTest" />
++        <item itemvalue="Gradle.PivotalTest" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -91,6 +122,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1570722486705</updated>
+       <workItem from="1570722490407" duration="900000" />
++      <workItem from="1570724844587" duration="723000" />
+     </task>
+     <servers />
+   </component>
+@@ -102,7 +134,9 @@
+       <map>
+         <entry key="MAIN">
+           <value>
+-            <State />
++            <State>
++              <option name="COLUMN_ORDER" />
++            </State>
+           </value>
+         </entry>
+       </map>
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 6a92903447c4a5002e65bca89ce3d5d3933ff8c2)
++++ .idea/gradle.xml	(date 1570724851100)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+diff --git .gradle/5.2.1/executionHistory/executionHistory.bin .gradle/5.2.1/executionHistory/executionHistory.bin
+deleted file mode 100644
+index 22dd38e2643d854ed60670f59290cfb618085862..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git .gradle/5.2.1/executionHistory/executionHistory.lock .gradle/5.2.1/executionHistory/executionHistory.lock
+deleted file mode 100644
+index 7842712c3d7aa042711c505d49e7be2f327174be..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git .gradle/5.2.1/fileChanges/last-build.bin .gradle/5.2.1/fileChanges/last-build.bin
+deleted file mode 100644
+index f76dd238ade08917e6712764a16a22005a50573d..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git .gradle/5.2.1/fileContent/fileContent.lock .gradle/5.2.1/fileContent/fileContent.lock
+deleted file mode 100644
+index 5009c1cc55a517eab6e16f67e26eaa4679f80874..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git .gradle/5.2.1/fileHashes/fileHashes.bin .gradle/5.2.1/fileHashes/fileHashes.bin
+deleted file mode 100644
+index b2e7b20cc813335834b312d9250c7ce26250b652..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git .gradle/5.2.1/fileHashes/fileHashes.lock .gradle/5.2.1/fileHashes/fileHashes.lock
+deleted file mode 100644
+index 3efafea01d01db2a474db6e9fa9c561809289561..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git .gradle/5.2.1/javaCompile/javaCompile.lock .gradle/5.2.1/javaCompile/javaCompile.lock
+deleted file mode 100644
+index 0915a05991fc0c938bd37983432d8a056c70d1c8..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git .gradle/5.2.1/javaCompile/taskHistory.bin .gradle/5.2.1/javaCompile/taskHistory.bin
+deleted file mode 100644
+index c7c9e43ff3a517a976318ce1a66296759d872101..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git .gradle/buildOutputCleanup/buildOutputCleanup.lock .gradle/buildOutputCleanup/buildOutputCleanup.lock
+deleted file mode 100644
+index 7f4f6f5a0839b027142c2c38530b32ce6c47f8a2..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git .gradle/buildOutputCleanup/outputFiles.bin .gradle/buildOutputCleanup/outputFiles.bin
+deleted file mode 100644
+index 020d62ec6c43e845c2b978a07c49361629dde9b4..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git build/classes/java/test/Piv/PivotalTest.class build/classes/java/test/Piv/PivotalTest.class
+deleted file mode 100644
+index 2cf0278e545b0942eefef9cc4469078c835add2a..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git build/test-results/test/binary/output.bin build/test-results/test/binary/output.bin
+deleted file mode 100644
+index e69de29bb2d1d6434b8b29ae775ad8c2e48c5391..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git build/test-results/test/binary/output.bin.idx build/test-results/test/binary/output.bin.idx
+deleted file mode 100644
+index f76dd238ade08917e6712764a16a22005a50573d..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git gradle/wrapper/gradle-wrapper.jar gradle/wrapper/gradle-wrapper.jar
+deleted file mode 100644
+index 87b738cbd051603d91cc39de6cb000dd98fe6b02..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
+diff --git gradlew gradlew
+deleted file mode 100644
+index af6708ff229fda75da4f7cc4da4747217bac4d53..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+Hc$@<O00001
+
