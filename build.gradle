@@ -11,5 +11,18 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '4.1.1'
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-jvm
+    compile group: 'io.cucumber', name: 'cucumber-jvm', version: '4.7.4', ext: 'pom'
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-testng
+    compile group: 'io.cucumber', name: 'cucumber-testng', version: '4.7.4'
+
+}
+
+test {
+    useTestNG()
+    testLogging {
+        events 'PASSED', 'STARTED', 'FAILED', 'SKIPPED'
+    }
 }
